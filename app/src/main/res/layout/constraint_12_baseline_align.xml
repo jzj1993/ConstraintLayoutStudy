@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="1.2 BaselineAlign" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="文本可通过Baseline对齐。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:text="A"
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:text="B"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text1"
+            app:layout_constraintLeft_toRightOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:text="C"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/text1"
+            app:layout_constraintLeft_toRightOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

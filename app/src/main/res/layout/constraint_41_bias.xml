@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/constraint_root"
+    tools:ignore="DuplicateIds">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="4.1 Bias" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="当View左右(上下)都设置了约束时，根据bias按比例偏移。默认bias=0.5表示居中。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面蓝色View均设置约束在A的右边、B的左边。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/view_a"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/view_b"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:minWidth="80dp"
+            android:text="bias=0.5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:minWidth="80dp"
+            android:text="bias=0.0"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:minWidth="80dp"
+            android:text="bias=1.0"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="蓝色View超长时，bias仍然有效。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/view_a"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/view_b"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_marginTop="30dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="long text (bias=0.5) / long text (bias=0.5) / long text (bias=0.5) / long text (bias=0.5)"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="long text (bias=0.0) / long text (bias=0.0) / long text (bias=0.0) / long text (bias=0.0)"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="long text (bias=1.0) / long text (bias=1.0) / long text (bias=1.0) / long text (bias=1.0)"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="1的右边和2的左边重叠时，bias仍然有效。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/view_a"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/view_b"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_marginTop="30dp"
+            android:minWidth="80dp"
+            android:text="bias=0.5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:minWidth="80dp"
+            android:text="bias=0.0"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:minWidth="80dp"
+            android:text="bias=1.0"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="一个特殊的情况是，当两个约束设置的锚点相同时，bias并不起作用。下面的例子中，蓝色View的左右都被约束到A的右边。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/view_a"
+            style="@style/constraint_text"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_marginTop="30dp"
+            android:minWidth="80dp"
+            android:text="bias=0.5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toRightOf="@id/view_a"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:minWidth="80dp"
+            android:text="bias=0.0"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toRightOf="@id/view_a"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:minWidth="80dp"
+            android:text="bias=1.0"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toRightOf="@id/view_a"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="3.1 Margin / Gone" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="给View某个方向设置约束的同时可以设置Margin；还可以设置goneMargin属性，当约束锚点的View不可见时生效。不可见的View，其尺寸为0，Margin为0，但仍然有固定位置。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面的例子中，有ABCDE几个View，B~E均设置对齐到前一个View右侧，且MarginLeft=10dp。B不可见，因此尺寸为0且Margin为0，紧贴A的右侧；C位于不可见的B右侧；D不可见；E位于不可见的D右侧，其goneMarginLeft属性生效，距离左侧30dp。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:minHeight="70dp"
+            android:text="A"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:layout_marginLeft="10dp"
+            android:minHeight="70dp"
+            android:text="B"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@id/text1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:layout_marginLeft="10dp"
+            android:minHeight="70dp"
+            android:text="C"
+            app:layout_constraintLeft_toRightOf="@id/text2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text4"
+            style="@style/constraint_text"
+            android:layout_marginLeft="10dp"
+            android:minHeight="70dp"
+            android:text="D"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@id/text3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text5"
+            style="@style/constraint_text"
+            android:layout_marginLeft="10dp"
+            android:minHeight="70dp"
+            android:text="E\nmarginLeft=10dp\ngoneMarginLeft=30dp"
+            app:layout_constraintLeft_toRightOf="@id/text4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginLeft="30dp" />
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

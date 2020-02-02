@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="4.3 MatchConstraints" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="当View左右侧都设置了约束时，宽度为0dp表示使用MatchConstraints模式。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="有几种方式：默认spread表示直接展开至Constraints；wrap表示优先wrap_content且不超出Constraints；用Percent设置View尺寸占Parent的比例。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面蓝色View均设置约束在A的右边、B的左边。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/view_a"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/view_b"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:text="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:text="spread"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text1"
+            app:layout_constraintWidth_default="spread" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:text="wrap"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text2"
+            app:layout_constraintWidth_default="wrap" />
+
+        <TextView
+            android:id="@+id/text4"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap wrap"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text3"
+            app:layout_constraintWidth_default="wrap" />
+
+        <TextView
+            android:id="@+id/text5"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:text="percent=0.9"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text4"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.9" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

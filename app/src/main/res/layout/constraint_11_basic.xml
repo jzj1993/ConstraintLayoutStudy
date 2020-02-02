@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/constraint_root"
+    tools:ignore="DuplicateIds">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="1.1 基本用法" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="ConstraintLayout是RelativeLayout的增强版本。对于ConstraintLayout中的每个直接子View，可以设置若干约束(Constraints)。可以设置子View的上下左右约束到其他子View或者Parent(即ConstraintLayout自身)的上下左右。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面的例子中，B对齐到A右下角；C对齐到B的下方，同时对齐Parent右侧。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:minWidth="100dp"
+            android:text="A"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:minWidth="100dp"
+            android:text="B"
+            app:layout_constraintLeft_toRightOf="@id/text1"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:minWidth="100dp"
+            android:text="C"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="当View上下(左右)同时设置了约束时，最终的效果是该方向居中对齐。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面的例子中，B的上下都设置约束到A的下边，最后的效果是B会相对A的下边垂直居中。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container"
+        android:minHeight="80dp">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_width="match_parent"
+            android:minHeight="40dp"
+            android:text="A"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/solid_with_border_red"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="@id/text1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="ABC垂直排列，D在B右侧，且D和B垂直居中（D的上下分别约束到B的上下）。这种效果使用LinearLayout、RelativeLayout等都是没法完美实现的。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:minWidth="100dp"
+            android:text="A"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:minWidth="130dp"
+            android:text="B"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:minWidth="120dp"
+            android:text="C"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+        <TextView
+            android:id="@+id/text4"
+            style="@style/constraint_text"
+            android:background="@drawable/solid_with_border_red"
+            android:minWidth="60dp"
+            android:padding="13dp"
+            android:text="D"
+            app:layout_constraintBottom_toBottomOf="@id/text2"
+            app:layout_constraintLeft_toRightOf="@id/text2"
+            app:layout_constraintTop_toTopOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

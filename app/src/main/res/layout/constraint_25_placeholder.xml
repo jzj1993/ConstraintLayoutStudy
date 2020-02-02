@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="2.5 Placeholder" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="Placeholder是一个不可见的View，其content属性指定一个实际View的id。给Placeholder设置约束，相当于给指定的View设置约束，这个View就不需要设置了。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="利用这个特性，可以提前设置好若干Placeholder的约束，并提取到独立的merge布局文件中成为模板。使用时用include引入模板，实际的View只需要设置相应的id，即可按照模板定义好的布局排列。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="示例如下，具体写法请参考源码。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <include layout="@layout/constraint_25_placeholder_template" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:minWidth="100dp"
+            android:text="A" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:minWidth="100dp"
+            android:text="B" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

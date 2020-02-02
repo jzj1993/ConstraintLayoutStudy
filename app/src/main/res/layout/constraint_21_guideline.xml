@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="2.1 Guideline" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="Guideline是一个不可见的View，表示一条水平/垂直的参考线，其位置可以设置为相对Parent的百分比，或者相对Parent起始/结束设置固定距离。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面的例子中，一个垂直的Guideline处于Parent从左到右33%的位置，其他View可以沿着Guideline左右侧放置。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:text="right of guideline"
+            app:layout_constraintLeft_toRightOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:text="left of\nguideline"
+            app:layout_constraintRight_toLeftOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:layout_marginLeft="10dp"
+            android:text="right of guideline\n(with left margin)"
+            app:layout_constraintLeft_toRightOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/container"
+        style="@style/constraint_root"
+        android:background="@android:color/black"
+        android:divider="@drawable/padding_divider_horizontal"
+        android:padding="10dp"
+        android:showDividers="middle">
+
+        <include layout="@layout/constraint_11_basic"/>
+        <include layout="@layout/constraint_12_baseline_align"/>
+        <include layout="@layout/constraint_21_guideline"/>
+        <include layout="@layout/constraint_22_barrier"/>
+        <include layout="@layout/constraint_23_multi_barrier"/>
+        <include layout="@layout/constraint_24_group"/>
+        <include layout="@layout/constraint_25_placeholder"/>
+        <include layout="@layout/constraint_31_margin_and_gone"/>
+        <include layout="@layout/constraint_41_bias"/>
+        <include layout="@layout/constraint_42_constraint_size"/>
+        <include layout="@layout/constraint_43_match_constrains"/>
+        <include layout="@layout/constraint_44_match_constrains_size"/>
+        <include layout="@layout/constraint_51_spread_chain"/>
+        <include layout="@layout/constraint_52_spread_inside_chain"/>
+        <include layout="@layout/constraint_53_packed_chain"/>
+        <include layout="@layout/constraint_54_spread_chain_weight"/>
+        <include layout="@layout/constraint_61_circle_position"/>
+        <include layout="@layout/constraint_71_application"/>
+
+    </LinearLayout>
+
+</ScrollView>

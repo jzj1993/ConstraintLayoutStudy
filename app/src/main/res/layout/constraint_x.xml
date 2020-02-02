@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:text="A" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:text="B" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:text="C" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="6.1 Circle" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="沿着一个View按指定的半径和角度布局。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="1"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="30"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="2"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="60"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="3"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="90"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="4"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="120"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="5"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="150"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="6"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="180"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="7"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="210"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="8"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="240"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="9"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="270"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="10"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="300"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="11"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="330"
+            app:layout_constraintCircleRadius="50dp" />
+
+        <TextView
+            style="@style/constraint_text"
+            android:text="12"
+            app:layout_constraintCircle="@id/text1"
+            app:layout_constraintCircleAngle="0"
+            app:layout_constraintCircleRadius="50dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/constraint_root"
+    tools:ignore="DuplicateIds">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="2.3 多个Barrier" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面的例子中，从左到右分别有ABC - Barrier - DE - Barrier - F，且ABC、DE分别居中对齐，在1.1.3版本中显示正常(低版本中有BUG，显示不正确，因此注意使用最新版本)。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_width="80dp"
+            android:text="A"
+            app:layout_constraintBottom_toTopOf="@+id/text2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/barrier"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:layout_width="150dp"
+            android:text="B"
+            app:layout_constraintBottom_toTopOf="@+id/text3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/barrier"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:layout_width="120dp"
+            android:text="C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/barrier"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="text1,text2,text3" />
+
+        <TextView
+            android:id="@+id/text4"
+            style="@style/constraint_text"
+            android:background="@drawable/solid_with_border_red"
+            android:minWidth="80dp"
+            android:text="D"
+            app:layout_constraintLeft_toLeftOf="@id/barrier"
+            app:layout_constraintRight_toRightOf="@id/barrier_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text5"
+            style="@style/constraint_text"
+            android:background="@drawable/solid_with_border_red"
+            android:minWidth="40dp"
+            android:text="E"
+            app:layout_constraintLeft_toLeftOf="@id/barrier"
+            app:layout_constraintRight_toRightOf="@id/barrier_2"
+            app:layout_constraintTop_toBottomOf="@id/text4" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="text4,text5" />
+
+        <TextView
+            android:id="@+id/text6"
+            style="@style/constraint_text"
+            android:layout_height="0dp"
+            android:text="F"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/barrier_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

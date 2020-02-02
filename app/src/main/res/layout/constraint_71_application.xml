@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/constraint_root"
+    tools:ignore="DuplicateIds">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="7.1 实际案例" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="两个文本均为WrapContent，当文本内容过长，截断第一个文本，第二个文本还是WrapContent。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="使用PackedChain加bias实现文本较短时的布局；同时给第一个文本设置ConstrainedWidth的wrap模式，处理文本过长截断的情况。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="ABCDEFG"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/text2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="wrap" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:layout_width="wrap_content"
+            android:text="12345"
+            app:layout_constraintLeft_toRightOf="@id/text1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_width="0dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/text2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="wrap" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:layout_width="wrap_content"
+            android:text="12345"
+            app:layout_constraintLeft_toRightOf="@id/text1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

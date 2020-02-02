@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/constraint_root">
+
+    <TextView
+        style="@style/constraint_title"
+        android:text="4.2 ConstraintSize" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="默认情况下，View超长时会被约束到和Parent相同尺寸。而当View左右(上下)都设置了约束时，可设置ConstrainedWidth(Height)，在View宽度(高度)超出约束时限制尺寸。" />
+
+    <TextView
+        style="@style/constraint_explain"
+        android:text="下面蓝色View均设置约束在A的右边、B的左边。" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/parent"
+        style="@style/constraint_container">
+
+        <TextView
+            android:id="@+id/view_a"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/view_b"
+            style="@style/constraint_text"
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:background="@drawable/solid_with_border_red"
+            android:gravity="center_horizontal|top"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/constraint_text"
+            android:layout_marginTop="30dp"
+            android:text="short text"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/constraint_text"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="long text / long text / long text / long text / long text / long text / long text / long text / long text"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/constraint_text"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="long text (constrained width) / long text (constrained width) / long text (constrained width) / long text (constrained width)"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintLeft_toRightOf="@id/view_a"
+            app:layout_constraintRight_toLeftOf="@id/view_b"
+            app:layout_constraintTop_toBottomOf="@id/text2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
